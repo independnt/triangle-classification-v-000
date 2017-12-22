@@ -13,15 +13,9 @@ class Triangle
     if equilateral?
       :equilateral
     elsif isosceles?
-        :isosceles
+      :isosceles
     else
       :scalene
-    end
-  end
-
-  def scalene?
-    if side1 != side2 && side2 != side3 && side1 != side3
-      true
     end
   end
 
@@ -38,7 +32,7 @@ class Triangle
   end
 
   def error?
-    real_triangle = [(side1 + side2 > side3),(side2 + side3 > side1), (side1 + side3 > side2)]
+    triangle = [(side1 + side2 > side3),(side2 + side3 > side1), (side1 + side3 > side2)]
     [side1,side2,side3].each{|s| real_triangle << false if s <= 0}
     raise TriangleError if real_triangle.include?(false)
   end
